@@ -1,0 +1,94 @@
+.dressCode {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.text {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 1.9;
+    color: #665140;
+}
+
+.red {
+    color: #b33a3a;
+    font-weight: 700;
+}
+
+.colors {
+    margin: 55px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+.color {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    border: 2px solid #d6c4aa;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.white {
+    background: #ffffff;
+}
+
+.beige {
+    background: #d9c6ab;
+}
+
+.cream {
+    background: #f4ead8;
+}
+
+.confirm {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 1.8;
+    color: #5d4632;
+}
+
+.confirm strong {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .text,
+    .confirm {
+        font-size: 19px;
+    }
+
+    .color {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dressCode {
+        padding: 0 20px;
+    }
+
+    .text,
+    .confirm {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .colors {
+        gap: 18px;
+        margin: 40px 0;
+    }
+
+    .color {
+        width: 50px;
+        height: 50px;
+    }
+}

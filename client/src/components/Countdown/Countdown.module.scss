@@ -1,0 +1,125 @@
+.countdown {
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown h2 {
+    font-family: "Great Vibes", cursive;
+    font-style: italic;
+    font-size: 42px;
+    font-weight: 700;
+    color: #62462b;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 14px;
+    flex-wrap: nowrap;
+}
+
+.item {
+    width: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item strong {
+    font-size: 42px;
+    font-weight: 300;
+    color: #5b4128;
+    line-height: 1;
+}
+
+.item span {
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8b6b46;
+    text-align: center;
+}
+
+.separator {
+    font-size: 42px;
+    font-weight: 300;
+    color: #5b4128;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 768px) {
+    .countdown {
+        padding: 80px 16px;
+    }
+
+    .countdown h2 {
+        font-size: 34px;
+        margin-bottom: 40px;
+    }
+
+    .grid {
+        gap: 10px;
+    }
+
+    .item {
+        width: 72px;
+    }
+
+    .item strong {
+        font-size: 32px;
+    }
+
+    .item span {
+        margin-top: 8px;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+    }
+
+    .separator {
+        font-size: 30px;
+    }
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width: 480px) {
+    .countdown {
+        padding: 60px 12px;
+    }
+
+    .countdown h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .grid {
+        gap: 6px;
+    }
+
+    .item {
+        width: 58px;
+    }
+
+    .item strong {
+        font-size: 24px;
+    }
+
+    .item span {
+        margin-top: 6px;
+        font-size: 9px;
+        letter-spacing: 0.05em;
+    }
+
+    .separator {
+        font-size: 22px;
+    }
+}

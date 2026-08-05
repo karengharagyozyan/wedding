@@ -1,0 +1,309 @@
+.scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.wrapper {
+    position: relative;
+    width: 420px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1800px;
+}
+
+.envelope {
+    position: relative;
+    width: 360px;
+    height: 240px;
+    transform-style: preserve-3d;
+    --paper-slide: -250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shadow {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    width: 300px;
+    height: 40px;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, .18);
+    filter: blur(25px);
+    border-radius: 50%;
+}
+
+.back {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, #f7ecd9, #ecd7b4);
+    border-radius: 12px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, .18);
+}
+
+
+
+/* Invitation paper */
+
+.paper {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    right: 24px;
+    height: 230px;
+    z-index: 3;
+    background: #fffdf8;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: bottom center;
+    opacity: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+
+}
+
+.paperInner {
+    text-align: center;
+    color: #5d4632;
+}
+
+.paperInner p {
+    font-size: 13px;
+    letter-spacing: .35em;
+    margin-bottom: 18px;
+}
+
+.paperInner h2 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: .08em;
+}
+
+.paperInner span {
+    display: block;
+    margin: 12px 0;
+    font-size: 24px;
+}
+
+.front {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.front::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 145px;
+    background: linear-gradient(180deg, #f1dfbf, #e4c89b);
+    clip-path: polygon(0 100%, 50% 25%, 100% 100%);
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 145px;
+    z-index: 6;
+    background: linear-gradient(180deg, #f7ecd9, #e6c89c);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    backface-visibility: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.seal {
+    position: absolute;
+    top: 105px;
+    // left: 42.5%;
+    width: 58px;
+    height: 58px;
+    transform: translateX(-50%);
+    z-index: 8;
+    border-radius: 50%;
+    background: radial-gradient(circle, #b33b3b, #7d1d1d);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+    cursor: pointer;
+}
+
+// Resposive
+
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 360px;
+        height: 280px;
+    }
+
+    .envelope {
+        width: 320px;
+        height: 214px;
+    }
+
+    .paper {
+        left: 20px;
+        right: 20px;
+        height: 205px;
+    }
+
+    .shadow {
+        width: 260px;
+    }
+
+    .seal {
+        top: 95px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 320px;
+        height: 250px;
+    }
+
+    .envelope {
+        width: 280px;
+        height: 187px;
+        --paper-slide: -135px;
+    }
+
+    .paper {
+        top: 16px;
+        left: 18px;
+        right: 18px;
+        height: 180px;
+    }
+
+    .paperInner p {
+        font-size: 11px;
+        letter-spacing: .25em;
+    }
+
+    .paperInner h2 {
+        font-size: 34px;
+    }
+
+    .paperInner span {
+        font-size: 20px;
+    }
+
+    .flap {
+        height: 115px;
+    }
+
+    .front::before {
+        height: 115px;
+    }
+
+    .seal {
+        width: 50px;
+        height: 50px;
+        top: 82px;
+        font-size: 18px;
+    }
+
+    .shadow {
+        width: 220px;
+        bottom: -24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        width: 100%;
+        height: 220px;
+    }
+
+    .envelope {
+        width: min(90vw, 260px);
+        height: calc(min(90vw, 260px) * 0.667);
+        --paper-slide: -115px;
+    }
+
+    .paper {
+        top: 14px;
+        left: 16px;
+        right: 16px;
+        height: 165px;
+    }
+
+    .paperInner p {
+        font-size: 10px;
+        letter-spacing: .2em;
+        margin-bottom: 12px;
+    }
+
+    .paperInner h2 {
+        font-size: 28px;
+    }
+
+    .paperInner span {
+        font-size: 18px;
+        margin: 8px 0;
+    }
+
+    .flap {
+        height: 105px;
+    }
+
+    .front::before {
+        height: 105px;
+    }
+
+    .seal {
+        width: 46px;
+        height: 46px;
+        top: 75px;
+        font-size: 16px;
+    }
+
+    .shadow {
+        width: 190px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 360px) {
+    .envelope {
+        width: 230px;
+        height: 154px;
+    }
+
+    .paper {
+        left: 14px;
+        right: 14px;
+        height: 145px;
+    }
+
+    .paperInner h2 {
+        font-size: 24px;
+    }
+
+    .paperInner span {
+        font-size: 16px;
+    }
+
+    .seal {
+        width: 42px;
+        height: 42px;
+        top: 67px;
+        font-size: 15px;
+    }
+}

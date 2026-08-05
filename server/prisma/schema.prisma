@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum GuestStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}
+
+enum GuestSide {
+  TIGRAN
+  KRISTINA
+}
+
+model Guest {
+  id         String           @id @default(cuid())
+  name       String
+  side       GuestSide?
+  phone      String?
+  email      String?          @unique
+  slug       String           @unique
+  status     GuestStatus      @default(PENDING)
+  guestCount Int              @default(1)
+  message    String?
+  viewed     Boolean          @default(false)
+  viewedAt   DateTime?
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  views      InvitationView[]
+}
+
+model InvitationView {
+  id        String   @id @default(cuid())
+  guestId   String
+  guest     Guest    @relation(fields: [guestId], references: [id], onDelete: Cascade)
+  ip        String?
+  userAgent String?
+  visitedAt DateTime @default(now())
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}

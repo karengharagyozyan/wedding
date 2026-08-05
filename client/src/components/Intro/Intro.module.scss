@@ -1,0 +1,58 @@
+.scene {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at top, #faf4ea, #efe4cf);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelopeContainer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.envelopeContainer p {
+    margin-top: 20px;
+
+    font-size: 18px;
+    color: #5d4632;
+}
+
+.text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #5d4632;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+// Responsive
+
+.envelopeContainer p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #5d4632;
+    text-align: center;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .envelopeContainer p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .envelopeContainer p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
