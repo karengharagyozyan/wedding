@@ -53,9 +53,12 @@ export async function login(
         {
             httpOnly: true,
 
-            secure: false,
+            secure: process.env.NODE_ENV === "production",
 
-            sameSite: "lax",
+            sameSite:
+                process.env.NODE_ENV === "production"
+                    ? "none"
+                    : "lax",
 
             maxAge:
                 7 * 24 * 60 * 60 * 1000
@@ -86,7 +89,17 @@ export async function logout(
 ){
 
     res.clearCookie(
-        "token"
+        "token",
+        {
+            httpOnly: true,
+
+            secure: process.env.NODE_ENV === "production",
+
+            sameSite:
+                process.env.NODE_ENV === "production"
+                    ? "none"
+                    : "lax",
+        }
     );
 
 
@@ -108,10 +121,6 @@ export async function me(
     res:Response
 ){
 
-    // NOTE: this assumes your auth.middleware.ts attaches the decoded
-    // admin payload to req.admin. I don't have that file's content —
-    // if it attaches it to a different property (e.g. req.user),
-    // change (req as any).admin below to match.
     res.json({
 
         success:true,
